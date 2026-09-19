@@ -4,9 +4,12 @@ A customer support ticket management tool for support agents. Agents can log tic
 
 Built as the Datastraw Technologies hiring assignment.
 
-- **Live app:** _add your Vercel URL here_
-- **API:** _add your Render URL here_ (`/api/health` should return `{"status":"ok"}`)
+- **Live app:** https://ticketdesk-crm.vercel.app
+- **API:** https://ticketdesk-api-2bhe.onrender.com (health check: https://ticketdesk-api-2bhe.onrender.com/api/health)
+- **GitHub repository:** https://github.com/monu655/ticketdesk-crm
 - **Demo video:** _add your video link here_
+
+> The API runs on Render's free plan, so the first request after a period of inactivity can take up to a minute. If the app shows an error at first, wait a moment and press **Try again**.
 
 ## Problem statement
 
@@ -183,9 +186,7 @@ ticketdesk-crm/
 │   ├── vercel.json                  # single-page-app rewrite
 │   └── .env.example
 ├── render.yaml                      # optional Render blueprint for the backend
-├── README.md
-├── DEMO_GUIDE.md
-└── INTERVIEW_NOTES.md
+└── README.md
 ```
 
 ## Local setup
@@ -242,7 +243,7 @@ Production build check: `npm run build` then `npm run preview`.
 
 | Variable | Purpose | Example |
 | --- | --- | --- |
-| `VITE_API_URL` | Backend base URL, no trailing slash. Empty in local development. | `https://ticketdesk-api.onrender.com` |
+| `VITE_API_URL` | Backend base URL, no trailing slash. Empty in local development. | `https://ticketdesk-api-2bhe.onrender.com` |
 
 `.env` files are git-ignored. Only the `.env.example` files are committed. `VITE_` variables are baked into the frontend at build time, so redeploy the frontend after changing it.
 
