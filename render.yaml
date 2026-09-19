@@ -1,0 +1,25 @@
+# Render Blueprint for the backend API. The frontend is deployed separately on Vercel.
+services:
+  - type: web
+    name: ticketdesk-api
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      # Set this in the Render dashboard to your Vercel URL, e.g. https://ticketdesk-crm.vercel.app
+      - key: FRONTEND_URL
+        sync: false
+      # On the free plan the disk is temporary. To keep data, attach a persistent disk
+      # (paid instance) mounted at /var/data and change this to /var/data/ticketdesk.db
+      - key: DATABASE_PATH
+        value: ./data/ticketdesk.db
+      # Loads sample tickets whenever the database starts empty
+      - key: SEED_ON_EMPTY
+        value: "true"
